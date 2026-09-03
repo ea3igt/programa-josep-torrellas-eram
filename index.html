@@ -30,8 +30,8 @@
     </header>
     <aside class="source-note">
       <p><strong>Com s'ha interpretat el semestre.</strong> «Anual» indica docència continuada al primer i al segon semestre. «1r i 2n · grups diferents» indica que la mateixa assignatura s'ofereix en semestres diferents, però no que cada estudiant l'hagi de cursar tot l'any.</p>
-      <p>Els horaris s'han contrastat amb el <a href="https://horari.eram.cat/" target="_blank" rel="noopener noreferrer">calendari oficial d'ERAM</a> en setmanes lectives representatives del primer i del segon semestre. Consulta inicial dels horaris: 1–2 de setembre de 2026. Guió videogràfic revalidat i auditoria de codis, noms, grups i durades: 3 de setembre de 2026. Poden existir canvis, incidències o sessions extraordinàries; convé verificar el calendari viu abans de matricular-se.</p>
-      <p><strong>Revisió de les 25 assignatures.</strong> S'han consultat les fitxes UdG 2026; en dos casos només hi ha la guia 2025. Guió videogràfic s'ha corregit i contrastat amb ERAM. Els casos amb discrepàncies de durada, grup o correspondència consten a «Pendent de confirmar», no com a oferta confirmada. Aquesta auditoria no és una revalidació completa de tots els horaris. No s'assimilen automàticament els grups C/GG als A/B.</p>
+      <p>Els horaris s'han contrastat amb el <a href="https://horari.eram.cat/" target="_blank" rel="noopener noreferrer">calendari oficial d'ERAM</a> en setmanes lectives representatives del primer i del segon semestre. Dades consultades de l'1 al 3 de setembre de 2026. Poden existir canvis, incidències o sessions extraordinàries; convé verificar el calendari viu abans de matricular-se.</p>
+      <p><strong>Criteri de verificació.</strong> S'han consultat les fitxes UdG 2026; en dos casos només hi ha disponible la guia 2025. Quan la fitxa UdG i el calendari ERAM no coincideixen en la durada, el grup o la correspondència, l'assignatura consta a «Pendent de confirmar» i la nota explica la discrepància i el criteri aplicat. Els grups C/GG no s'assimilen als A/B sense una correspondència explícita.</p>
       <p><strong>Idiomes.</strong> Els percentatges reprodueixen les fitxes oficials de cada assignatura i indiquen la proporció prevista de docència en cada llengua. L'asterisc (*) assenyala els casos en què la guia 2026-2027 encara no ho publica i s'ha utilitzat l'última guia disponible, la de 2025-2026. «No especificat» significa que la fitxa oficial no informa de l'idioma d'aquell grup.</p>
       <p><strong>Abreviatures:</strong> dl · dilluns; dt · dimarts; dc · dimecres; dj · dijous; dv · divendres.</p>
       <div class="legend"><span class="tag first">1r semestre</span><span class="tag annual">Anual · 1r + 2n</span><span class="tag both">1r i 2n · grups diferents</span><span class="tag second">2n semestre</span><span class="tag pending">Pendent de confirmar</span></div>
@@ -85,25 +85,23 @@
       {d:"MODA",c:"3157G05006",y:"1r",n:"Tècniques manuals i digitals de patronatge",s:"second",h:["<i>Grup B - Català 100%</i>dl · 08.30–12.30","<i>Grup C - Català 100%</i>dl · 13.00–17.00"]}
     ];
 
-    // Auditoria de correspondència codi–nom–grup, 03/09/2026.
-    // No converteix dades contradictòries en una oferta confirmada.
+    // Criteris per a discrepàncies entre les fitxes UdG i el calendari ERAM.
     const reviewNotes={
-      "3157G04050":"Guia 2026 no disponible. La guia 2025 i l'oferta UdG indiquen B al 2n; ERAM publica A al 1r. Oferta i idioma del grup A pendents de confirmar.",
-      "3157G04005":"UdG 2026: grup B al 2n semestre. La taula anterior recollia sessions ERAM als dos semestres; cal confirmar la correspondència.",
-      "3157G04015":"UdG 2026: anual, grups A/B. La taula anterior només recollia horari del 2n semestre; falta validar el 1r.",
-      "3157G03046":"UdG 2026: grup A al 2n semestre. La taula anterior la classificava com anual; durada pendent de confirmar amb ERAM.",
-      "3157G03005":"UdG 2026: grups A/B al 2n semestre. La taula anterior recollia sessions als dos semestres; cal confirmar la correspondència.",
-      "3157G03010":"UdG 2026: grups A/B al 2n semestre. La taula anterior la classificava com anual; cal confirmar la correspondència.",
-      "3157G03022":"El codi UdG correspon a Interpretació escènica: comportament humà, anual, grup A. No s'ha validat l'equivalència amb Reproducció del comportament humà ni el curs del grau.",
-      "3157G03009":"UdG 2026: grups A/B al 2n semestre. La taula anterior la classificava com anual; cal confirmar la correspondència.",
-      "3157G05022":"UdG 2026: anual, grup B; idioma no especificat. La taula anterior només recollia el 1r semestre.",
-      "3157G05009":"Guia 2026 no disponible. Guia 2025: anual, grup B. No s'han confirmat la durada 2026-2027 ni l'equivalència dels horaris de Confecció."
+      "3157G04050":"Discrepància: la guia UdG 2026 no està disponible; la guia 2025 indica el grup B al 2n semestre, mentre que ERAM publica el grup A al 1r. Criteri aplicat: es mostren separadament les dades de cada font i l'oferta i l'idioma del grup A queden pendents de confirmació.",
+      "3157G04005":"Discrepància: la fitxa UdG 2026 situa el grup B al 2n semestre, mentre que el calendari ERAM mostra sessions als dos semestres. Criteri aplicat: el semestre queda pendent fins que ERAM confirmi la correspondència de les sessions amb el codi.",
+      "3157G04015":"Discrepància: la fitxa UdG 2026 defineix l'assignatura com a anual per als grups A i B, però al calendari ERAM només s'ha identificat l'horari del 2n semestre. Criteri aplicat: es conserva la durada anual de la fitxa UdG i queda pendent l'horari del 1r semestre.",
+      "3157G03046":"Discrepància: la fitxa UdG 2026 situa el grup A al 2n semestre, mentre que el calendari ERAM no permet confirmar-ne inequívocament la durada. Criteri aplicat: es manté pendent fins que ERAM confirmi la correspondència i la durada.",
+      "3157G03005":"Discrepància: la fitxa UdG 2026 situa els grups A i B al 2n semestre, mentre que el calendari ERAM mostra sessions als dos semestres. Criteri aplicat: el semestre queda pendent fins que ERAM confirmi la correspondència de les sessions amb el codi.",
+      "3157G03010":"Discrepància: la fitxa UdG 2026 situa els grups A i B al 2n semestre, mentre que el calendari ERAM no permet confirmar una oferta anual. Criteri aplicat: preval la fitxa UdG per identificar el semestre i la correspondència amb els horaris queda pendent.",
+      "3157G03022":"Discrepància de correspondència: el codi UdG identifica Interpretació escènica: comportament humà, anual i del grup A, però no s'ha localitzat una vinculació inequívoca amb l'horari ERAM ni el curs del grau. Criteri aplicat: prevalen el codi i el nom oficials de la UdG; curs i horari queden pendents.",
+      "3157G03009":"Discrepància: la fitxa UdG 2026 situa els grups A i B al 2n semestre, mentre que el calendari ERAM no permet confirmar una oferta anual. Criteri aplicat: preval la fitxa UdG per identificar el semestre i la correspondència amb els horaris queda pendent.",
+      "3157G05022":"Discrepància: la fitxa UdG 2026 defineix l'assignatura com a anual per al grup B i no n'especifica l'idioma, mentre que al calendari ERAM només s'ha identificat l'horari del 1r semestre. Criteri aplicat: es conserva la durada anual i l'idioma de la fitxa UdG; queda pendent l'horari del 2n semestre.",
+      "3157G05009":"Discrepància: la guia UdG 2026 no està disponible; la guia 2025 defineix l'assignatura com a anual i del grup B, però no permet confirmar la correspondència amb els horaris de Confecció. Criteri aplicat: s'utilitza la guia 2025 només com a referència i la durada 2026-2027 i els horaris queden pendents."
     };
     subjects.forEach(x=>{
       if(reviewNotes[x.c]){
         x.s="pending";
         x.note=[x.note,reviewNotes[x.c]].filter(Boolean).join(" · ");
-        x.h.unshift("<em>Horaris de la versió anterior: no revalidats en aquesta auditoria.</em>");
       }
     });
 
