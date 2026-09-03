@@ -16,6 +16,7 @@
     .degree-card{margin:0 0 30px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}.degree-head{display:flex;align-items:center;gap:14px;padding:20px 22px;background:linear-gradient(90deg,rgba(89,167,255,.17),rgba(89,167,255,.035)),var(--surface2);border-bottom:1px solid var(--line)}.degree-badge{display:grid;place-items:center;min-width:62px;height:38px;padding:0 12px;border-radius:10px;background:rgba(89,167,255,.13);border:1px solid rgba(89,167,255,.34);color:#beddff;font-size:.8rem;font-weight:900;letter-spacing:.05em}.degree-head h2{margin:0;font-size:1.16rem}.degree-head p{margin:3px 0 0;color:var(--muted);font-size:.82rem}
     .table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;background:var(--surface)}th{text-align:left;padding:12px 15px;color:var(--muted);font-size:.73rem;letter-spacing:.07em;text-transform:uppercase;background:rgba(255,255,255,.025);border-bottom:1px solid var(--line)}td{padding:14px 15px;border-bottom:1px solid rgba(37,58,88,.72);vertical-align:top}.subject-row:hover{background:rgba(255,255,255,.025)}.semester-heading th{padding:10px 15px;color:var(--text);font-size:.76rem;letter-spacing:.05em;text-transform:none;background:rgba(89,167,255,.09);border-top:1px solid var(--line)}tbody[data-semester="annual"] .semester-heading th{background:rgba(211,168,94,.13)}tbody[data-semester="second"] .semester-heading th{background:rgba(155,140,255,.13)}tbody[data-semester="both"] .semester-heading th{background:rgba(114,201,167,.13)}
     .code-cell{width:137px;white-space:nowrap;font-variant-numeric:tabular-nums}.code-cell a{color:var(--accent);font-weight:750;text-decoration:none}.code-cell a:hover{text-decoration:underline}.course-cell{width:65px}.semester-cell{width:145px}.subject-cell{min-width:235px}.subject-name{font-weight:680}.note{display:block;margin-top:4px;color:var(--muted);font-size:.8rem}.schedule-cell{min-width:390px;font-size:.84rem}.schedule-line{display:block}.schedule-line+.schedule-line{margin-top:5px}.schedule-change{color:var(--muted)}.empty{display:none;margin:12px 0 30px;padding:20px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);text-align:center}footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:6px}
+    .tag.pending{color:#ffddb0;background:rgba(225,151,56,.15);border:1px solid rgba(225,151,56,.4)}tbody[data-semester="pending"] .semester-heading th{background:rgba(225,151,56,.13)}
     @media(max-width:820px){.page{width:min(100% - 20px,1280px);padding-top:28px}.hero{grid-template-columns:1fr;align-items:start}.summary{justify-content:flex-start}.degree-head{padding:17px 15px}th,td{padding:12px}}
     @media(max-width:650px){table,thead,tbody,tr,th,td{display:block}thead{display:none}.semester-heading th{padding:10px 14px}.subject-row{padding:13px 14px;border-bottom:1px solid rgba(37,58,88,.72)}.subject-row td{display:grid;grid-template-columns:92px 1fr;gap:8px;width:auto;min-width:0;padding:3px 0;border:0;white-space:normal}.subject-row td::before{content:attr(data-label);color:var(--muted);font-size:.69rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.schedule-cell{font-size:.82rem}}
     @media print{body{background:#fff;color:#111}.page{width:100%;padding:0}.toolbar{display:none}.degree-card{box-shadow:none;break-inside:avoid;border-color:#bbb}.degree-head,table{background:#fff}.degree-head h2,.subject-name,.semester-heading th{color:#111}.degree-head p,.note,.lead,footer,.summary span,.source-note,.schedule-change{color:#444}td,th{border-color:#ddd}.code-cell a{color:#0645ad}.source-note{background:#fff;border-color:#bbb}}
@@ -29,11 +30,11 @@
     </header>
     <aside class="source-note">
       <p><strong>Com s'ha interpretat el semestre.</strong> «Anual» indica docència continuada al primer i al segon semestre. «1r i 2n · grups diferents» indica que la mateixa assignatura s'ofereix en semestres diferents, però no que cada estudiant l'hagi de cursar tot l'any.</p>
-      <p>Els horaris s'han contrastat amb el <a href="https://horari.eram.cat/" target="_blank" rel="noopener noreferrer">calendari oficial d'ERAM</a> en setmanes lectives representatives del primer i del segon semestre. Consulta actualitzada el 2 de setembre de 2026. Poden existir canvis, incidències o sessions extraordinàries; convé verificar el calendari viu abans de matricular-se.</p>
-      <p><strong>Direcció de fotografia.</strong> Les fonts oficials no coincideixen: l'oferta de la UdG situa el grup B al segon semestre, però el calendari d'ERAM 2026-2027 publica sessions del grup A al primer semestre. A data de la consulta, ERAM encara no mostra l'horari del grup B. Per això l'assignatura figura a «1r i 2n · grups diferents» i s'indica la font de cada dada.</p>
+      <p>Els horaris s'han contrastat amb el <a href="https://horari.eram.cat/" target="_blank" rel="noopener noreferrer">calendari oficial d'ERAM</a> en setmanes lectives representatives del primer i del segon semestre. Consulta inicial dels horaris: 1–2 de setembre de 2026. Guió videogràfic revalidat i auditoria de codis, noms, grups i durades: 3 de setembre de 2026. Poden existir canvis, incidències o sessions extraordinàries; convé verificar el calendari viu abans de matricular-se.</p>
+      <p><strong>Revisió de les 25 assignatures.</strong> S'han consultat les fitxes UdG 2026; en dos casos només hi ha la guia 2025. Guió videogràfic s'ha corregit i contrastat amb ERAM. Els casos amb discrepàncies de durada, grup o correspondència consten a «Pendent de confirmar», no com a oferta confirmada. Aquesta auditoria no és una revalidació completa de tots els horaris. No s'assimilen automàticament els grups C/GG als A/B.</p>
       <p><strong>Idiomes.</strong> Els percentatges reprodueixen les fitxes oficials de cada assignatura i indiquen la proporció prevista de docència en cada llengua. L'asterisc (*) assenyala els casos en què la guia 2026-2027 encara no ho publica i s'ha utilitzat l'última guia disponible, la de 2025-2026. «No especificat» significa que la fitxa oficial no informa de l'idioma d'aquell grup.</p>
       <p><strong>Abreviatures:</strong> dl · dilluns; dt · dimarts; dc · dimecres; dj · dijous; dv · divendres.</p>
-      <div class="legend"><span class="tag first">1r semestre</span><span class="tag annual">Anual · 1r + 2n</span><span class="tag both">1r i 2n · grups diferents</span><span class="tag second">2n semestre</span></div>
+      <div class="legend"><span class="tag first">1r semestre</span><span class="tag annual">Anual · 1r + 2n</span><span class="tag both">1r i 2n · grups diferents</span><span class="tag second">2n semestre</span><span class="tag pending">Pendent de confirmar</span></div>
     </aside>
     <div class="toolbar"><label class="search"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Cerca per assignatura, codi, curs, semestre, dia o grau…" aria-label="Cerca"></label></div>
     <div id="degreeList"></div>
@@ -43,21 +44,22 @@
   <script>
     const degrees={
       CAuM:{name:"Grau en Comunicació Audiovisual i Multimèdia",count:12},
-      AE:{name:"Grau en Arts Escèniques",count:7,detail:"totes tenen docència als dos semestres"},
+      AE:{name:"Grau en Arts Escèniques",count:7,detail:"consulteu els casos pendents de confirmar"},
       MODA:{name:"Grau en Moda",count:6}
     };
     const semesters={
       first:{heading:"Primer semestre",label:"1r semestre"},
       annual:{heading:"Assignatures anuals · primer i segon semestre",label:"Anual"},
       both:{heading:"Oferta al primer i al segon semestre · grups diferents",label:"1r i 2n",note:"Grups diferents"},
-      second:{heading:"Segon semestre",label:"2n semestre"}
+      second:{heading:"Segon semestre",label:"2n semestre"},
+      pending:{heading:"Semestre o correspondència pendents de confirmar",label:"Pendent",note:"Vegeu la nota de l’assignatura"}
     };
     const courseOrder={"1r":1,"2n":2,"3r":3,"4t":4};
     const subjects=[
       {d:"CAuM",c:"3157G04001",y:"1r",n:"Estètica i teoria de l'art",s:"first",h:["<i>Grup A - Català 33% · Castellà 34% · Anglès 33%</i>dc · 11.45–14.45","<i>Grup B - Català 10% · Castellà 50% · Anglès 40%</i>dl · 11.45–14.45"]},
       {d:"CAuM",c:"3157G04003",y:"2n",n:"Cultura i pensament",s:"first",h:["<i>Grup A - Anglès 100%</i>dc · 08.30–11.30","<i>Grup B - Català 100%</i>dj · 11.45–14.45"]},
       {d:"CAuM",c:"3157G04049",y:"4t",n:"Il·lustració",note:"Docència en anglès",s:"first",h:["<i>Grup A - Anglès 100%</i>dl · 15.30–19.30"]},
-      {d:"CAuM",c:"3157G04050",y:"4t",n:"Direcció de fotografia",note:"Requereix coneixements previs de fotografia · discrepància UdG/ERAM",s:"both",h:["<b>1r · ERAM:</b> <i>Grup A - Català 100%*</i>dl i dc · 15.30–18.30","<em>Sessions segons les dates del calendari · Plató P3</em>","<b>2n · UdG:</b> <i>Grup B - Català 100%*</i>horari encara no publicat al calendari d'ERAM"]},
+      {d:"CAuM",c:"3157G04050",y:"4t",n:"Direcció de fotografia",note:"Requereix coneixements previs de fotografia · discrepància UdG/ERAM",s:"both",h:["<b>1r · ERAM:</b> <i>Grup A - idioma no confirmat</i>dl i dc · 15.30–18.30","<em>Sessions segons les dates del calendari · Plató P3</em>","<b>2n · UdG:</b> <i>Grup B - Català 100%*</i>horari encara no publicat al calendari d'ERAM"]},
       {d:"CAuM",c:"3157G04009",y:"1r",n:"Teoria i tècnica del muntatge",s:"first",h:["<i>Grup A - Català 90% · Anglès 10%</i>dl · 11.45–14.45","<i>Grup B - Català 90% · Anglès 10%</i>dl · 08.30–11.30"]},
       {d:"CAuM",c:"3157G04023",y:"1r",n:"Fonaments del disseny gràfic",s:"annual",h:["<b>1r:</b> <i>Grup A - Anglès 100%</i>dc · 08.30–11.30","<b>1r:</b> <i>Grup B - Català 90% · Castellà 5% · Anglès 5%</i>dj · 11.45–14.45","<b>2n:</b> <i>Grup A - Anglès 100%</i>dt · 11.45–14.45","<b>2n:</b> <i>Grup B - Català 90% · Castellà 5% · Anglès 5%</i>dj · 11.45–14.45"]},
       {d:"CAuM",c:"3157G04005",y:"1r",n:"Llenguatge cinematogràfic",s:"annual",h:["<i>Grup B - Català 100%</i>dv · 11.45–14.45","<em>El contingut docent indicat al calendari canvia entre semestres</em>"]},
@@ -65,26 +67,48 @@
       {d:"CAuM",c:"3157G04037",y:"4t",n:"Fotografia creativa",s:"both",h:["<b>1r:</b> <i>Grup A - Anglès 100%</i>dt · 15.30–19.30","<b>2n:</b> <i>Grup B - Català 100%</i>dt · 15.30–19.30"]},
       {d:"CAuM",c:"3157G04008",y:"2n",n:"Llenguatges contemporanis",s:"second",h:["<i>Grup A - Anglès 100%</i>dj · 15.30–18.30","<i>Grup B - Català 100%</i>dv · 11.45–14.45"]},
       {d:"CAuM",c:"3157G04015",y:"2n",n:"3D I",s:"second",h:["<i>Grup A - Català 60% · Castellà 20% · Anglès 20%</i>dt i dj · 11.45–14.45","<i>Grup B - Català 60% · Castellà 20% · Anglès 20%</i>dt i dj · 08.30–11.30"]},
-      {d:"CAuM",c:"3157G04007",y:"3r",n:"Guió audiovisual · Guió videogràfic (anàlisi)",note:"Al calendari: «Redacció i desenvolupament del guió»",s:"second",h:["<i>Grups A/B - Català 70% · Castellà 20% · Anglès 10%</i>dc · 08.30–11.30","<em>Aules diferenciades segons el grup</em>"]},
+      {d:"CAuM",c:"3157G04007",y:"3r",n:"Guió videogràfic",note:"Del 2 de novembre de 2026 al 13 de gener de 2027 · segons calendari lectiu",s:"first",h:["<i>Grup A - Català 70% · Castellà 20% · Anglès 10%</i>dl i dc · 11.45–14.45 · T1 · Daniel Pérez (ERAM)","<i>Grup B - Català 70% · Castellà 20% · Anglès 10%</i>dl i dc · 08.30–11.30 · T1 · Marc Plana (ERAM)","<em>Professorat segons ERAM; la fitxa UdG intercanvia els docents dels grups A/B. No correspon a Redacció i desenvolupament del guió (3157G04036).</em>"]},
 
       {d:"AE",c:"3157G03045",y:"1r",n:"Literatura dramàtica I",s:"annual",h:["<b>1r:</b> <i>Grup A - Català 70% · Castellà 20% · Anglès 10%</i>dc · 09.00–12.00","<b>2n:</b> <i>Grup A - Català 70% · Castellà 20% · Anglès 10%</i>dc · 12.15–15.15"]},
       {d:"AE",c:"3157G03012",y:"2n",n:"Dramatúrgia teatral",s:"annual",h:["<i>Grup A - Català 100%</i>dl · 10.00–14.00"]},
       {d:"AE",c:"3157G03046",y:"2n",n:"Literatura dramàtica II",s:"annual",h:["<i>Grup A - Català 70% · Castellà 20% · Anglès 10%</i>dj · 11.45–14.45"]},
       {d:"AE",c:"3157G03005",y:"1r",n:"Tècniques d'interpretació: veu i cant",s:"annual",h:["<b>1r:</b> <i>Grup A - Català 100%</i>dt · 12.15–15.15","<b>1r:</b> <i>Grup B - Català 100%</i>dc · 12.15–15.15","<b>2n:</b> <i>Grup A - Català 100%</i>dt · 12.15–15.15","<b>2n:</b> <i>Grup B - Català 100%</i>dc · 09.00–12.00"]},
       {d:"AE",c:"3157G03010",y:"1r",n:"Tècniques d'interpretació de dansa",s:"annual",h:["<i>Grup A - Català 60% · Castellà 20% · Anglès 20%</i>dv · 09.00–12.00","<i>Grup B - Català 60% · Castellà 20% · Anglès 20%</i>dv · 12.15–15.15"]},
-      {d:"AE",c:"3157G03022",y:"1r",n:"Reproducció del comportament humà",s:"annual",h:["<i>Grup A - Català 80% · Castellà 20%</i>dl · 10.00–14.00","<i>Grup B - no especificat</i>dl · 15.00–19.00"]},
+      {d:"AE",c:"3157G03022",y:"?",n:"Interpretació escènica: comportament humà",s:"annual",h:["<i>Grup A - Català 80% · Castellà 20%</i>Horari pendent de confirmar per a aquest codi"]},
       {d:"AE",c:"3157G03009",y:"1r",n:"Tècniques d'interpretació de llenguatges corporals",note:"Coneixement de les tècniques del cos",s:"annual",h:["<i>Grup A - Català 80% · Castellà 10% · Anglès 5% · Francès 5%</i>dj · 09.00–12.00","<i>Grup B - Català 80% · Castellà 10% · Anglès 5% · Francès 5%</i>dj · 12.15–15.15"]},
 
       {d:"MODA",c:"3157G05002",y:"1r",n:"Història de la moda",s:"first",h:["<i>Grup B - Català 100%</i>dt · 11.45–14.45"]},
       {d:"MODA",c:"3157G05005",y:"1r",n:"Iniciació al patronatge: de 3D a 2D",s:"first",h:["<i>Grup B - Català 100%</i>dl · 08.30–12.30","<i>Grup C - Català 100%</i>dl · 13.00–17.00"]},
-      {d:"MODA",c:"3157G05022",y:"3r",n:"Tèxtil i tecnologia",s:"first",h:["<i>Grup B - Català 100%*</i>dl · 08.30–12.30"]},
+      {d:"MODA",c:"3157G05022",y:"3r",n:"Tèxtil i tecnologia",s:"first",h:["<i>Grup B - idioma no especificat (guia 2026)</i>dl · 08.30–12.30"]},
       {d:"MODA",c:"3157G05021",y:"2n",n:"Matèries tèxtils",s:"annual",h:["<b>1r:</b> <i>Grup B - Català 100%</i>dl · 08.30–11.30","<b>2n:</b> <i>Grup B - Català 100%</i>dl · 12.00–15.00"]},
       {d:"MODA",c:"3157G05009",y:"1r",n:"Creació de bases i prototips",note:"Confecció",s:"second",h:["<i>Grup B - Català 100%*</i>dt · 09.00–13.00","<i>Grup C - no especificat</i>dl · 08.30–12.30"]},
       {d:"MODA",c:"3157G05006",y:"1r",n:"Tècniques manuals i digitals de patronatge",s:"second",h:["<i>Grup B - Català 100%</i>dl · 08.30–12.30","<i>Grup C - Català 100%</i>dl · 13.00–17.00"]}
     ];
 
+    // Auditoria de correspondència codi–nom–grup, 03/09/2026.
+    // No converteix dades contradictòries en una oferta confirmada.
+    const reviewNotes={
+      "3157G04050":"Guia 2026 no disponible. La guia 2025 i l'oferta UdG indiquen B al 2n; ERAM publica A al 1r. Oferta i idioma del grup A pendents de confirmar.",
+      "3157G04005":"UdG 2026: grup B al 2n semestre. La taula anterior recollia sessions ERAM als dos semestres; cal confirmar la correspondència.",
+      "3157G04015":"UdG 2026: anual, grups A/B. La taula anterior només recollia horari del 2n semestre; falta validar el 1r.",
+      "3157G03046":"UdG 2026: grup A al 2n semestre. La taula anterior la classificava com anual; durada pendent de confirmar amb ERAM.",
+      "3157G03005":"UdG 2026: grups A/B al 2n semestre. La taula anterior recollia sessions als dos semestres; cal confirmar la correspondència.",
+      "3157G03010":"UdG 2026: grups A/B al 2n semestre. La taula anterior la classificava com anual; cal confirmar la correspondència.",
+      "3157G03022":"El codi UdG correspon a Interpretació escènica: comportament humà, anual, grup A. No s'ha validat l'equivalència amb Reproducció del comportament humà ni el curs del grau.",
+      "3157G03009":"UdG 2026: grups A/B al 2n semestre. La taula anterior la classificava com anual; cal confirmar la correspondència.",
+      "3157G05022":"UdG 2026: anual, grup B; idioma no especificat. La taula anterior només recollia el 1r semestre.",
+      "3157G05009":"Guia 2026 no disponible. Guia 2025: anual, grup B. No s'han confirmat la durada 2026-2027 ni l'equivalència dels horaris de Confecció."
+    };
+    subjects.forEach(x=>{
+      if(reviewNotes[x.c]){
+        x.s="pending";
+        x.note=[x.note,reviewNotes[x.c]].filter(Boolean).join(" · ");
+        x.h.unshift("<em>Horaris de la versió anterior: no revalidats en aquesta auditoria.</em>");
+      }
+    });
+
     const esc=s=>s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]));
-    const detailsUrl=c=>`https://www.udg.edu/ca/estudia/Oferta-formativa/Oferta-dassignatures/Detall-assignatura?codia=${c}`;
+    const detailsUrl=c=>`https://www.udg.edu/ca/estudia/Oferta-formativa/Oferta-dassignatures/Detall-assignatura?codia=${c}&curs=${["3157G04050","3157G05009"].includes(c)?"2025":"2026"}`;
     function scheduleHtml(lines){return lines.map(line=>`<span class="schedule-line${line.startsWith("<em>")?" schedule-change":""}">${line.replace(/<i>(.*?)<\/i>/g,'<span class="group-tag">$1</span>').replace(/<em>(.*?)<\/em>/g,'$1')}</span>`).join("")}
     function rowHtml(x){const sem=semesters[x.s];return `<tr class="subject-row" data-search="${esc([x.d,x.c,x.y,x.n,x.note||"",sem.heading,x.h.join(" ")].join(" "))}"><td class="code-cell" data-label="Codi"><a href="${detailsUrl(x.c)}" target="_blank" rel="noopener noreferrer">${x.c}</a></td><td class="course-cell" data-label="Curs"><span class="course-tag">${x.y}</span></td><td class="subject-cell" data-label="Assignatura"><span class="subject-name">${esc(x.n)}</span>${x.note?`<span class="note">${esc(x.note)}</span>`:""}</td><td class="semester-cell" data-label="Semestre"><span class="tag ${x.s}">${sem.label}</span>${sem.note?`<span class="note">${sem.note}</span>`:""}</td><td class="schedule-cell" data-label="Horari">${scheduleHtml(x.h)}</td></tr>`}
     function degreeHtml(key){const degree=degrees[key],mine=subjects.filter(x=>x.d===key);const bodies=Object.keys(semesters).map(s=>{const rows=mine.filter(x=>x.s===s).sort((a,b)=>(courseOrder[a.y]||99)-(courseOrder[b.y]||99)||a.n.localeCompare(b.n,"ca"));return rows.length?`<tbody data-semester="${s}"><tr class="semester-heading"><th colspan="5">${semesters[s].heading}</th></tr>${rows.map(rowHtml).join("")}</tbody>`:""}).join("");return `<section class="degree-card" data-degree="${key}"><div class="degree-head"><div class="degree-badge">${key}</div><div><h2>${degree.name}</h2><p>${degree.count} assignatures${degree.detail?` · ${degree.detail}`:""}</p></div></div><div class="table-wrap"><table><thead><tr><th>Codi</th><th>Curs</th><th>Assignatura</th><th>Semestre</th><th>Horari publicat</th></tr></thead>${bodies}</table></div></section>`}
@@ -97,4 +121,3 @@
   </script>
 </body>
 </html>
-
