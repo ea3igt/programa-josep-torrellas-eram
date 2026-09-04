@@ -19,7 +19,24 @@
     .code-cell{width:137px;white-space:nowrap;font-variant-numeric:tabular-nums}.code-cell a{color:var(--accent);font-weight:750;text-decoration:none}.code-cell a:hover{text-decoration:underline}.course-cell{width:65px}.semester-cell{width:145px}.subject-cell{min-width:235px}.subject-name{font-weight:680}.note{display:block;margin-top:4px;color:var(--muted);font-size:.8rem}.schedule-cell{min-width:390px;font-size:.84rem}.schedule-line{display:block}.schedule-line+.schedule-line{margin-top:5px}.schedule-change{color:var(--muted)}.empty{display:none;margin:12px 0 30px;padding:20px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);text-align:center}footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:6px}
     .tag.pending{color:#ffddb0;background:rgba(225,151,56,.15);border:1px solid rgba(225,151,56,.4)}tbody[data-semester="pending"] .semester-heading th{background:rgba(225,151,56,.13)}
     @media(max-width:820px){.page{width:min(100% - 20px,1280px);padding-top:28px}.hero{grid-template-columns:1fr;align-items:start}.summary{justify-content:flex-start}.degree-head{padding:17px 15px}th,td{padding:12px}}
-    @media(max-width:650px){table,thead,tbody,tr,th,td{display:block}thead{display:none}.semester-heading th{padding:10px 14px}.subject-row{padding:13px 14px;border-bottom:1px solid rgba(37,58,88,.72)}.subject-row td{display:grid;grid-template-columns:92px 1fr;gap:8px;width:auto;min-width:0;padding:3px 0;border:0;white-space:normal}.subject-row td::before{content:attr(data-label);color:var(--muted);font-size:.69rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.schedule-cell{font-size:.82rem}}
+    @media(max-width:650px){
+      table,thead,tbody,tr,th,td{display:block}thead{display:none}
+      .semester-heading th{padding:10px 14px}
+      .subject-row{padding:16px 14px;border-bottom:1px solid rgba(37,58,88,.72)}
+      .subject-row td{display:grid;grid-template-columns:92px minmax(0,1fr);gap:6px 8px;width:auto;min-width:0;padding:4px 0;border:0;white-space:normal}
+      .subject-row td::before{content:attr(data-label);grid-column:1;grid-row:1;color:var(--muted);font-size:.69rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+      .subject-row td>*{grid-column:2;min-width:0;max-width:100%;overflow-wrap:anywhere}
+      .subject-row td.schedule-cell{display:block;margin-top:10px;padding-top:12px;border-top:1px solid var(--line);font-size:.87rem}
+      .subject-row td.schedule-cell::before{display:block;margin-bottom:9px}
+      .schedule-line{line-height:1.55;overflow-wrap:anywhere}
+      .schedule-line+.schedule-line{margin-top:12px}
+      .schedule-line>b{display:block;margin-bottom:4px}
+      .schedule-line .group-tag{display:table;max-width:100%;margin:0 0 5px;padding:6px 9px;border-radius:9px;line-height:1.4;white-space:normal}
+      .schedule-change{font-size:.8rem}
+      .degree-head{align-items:flex-start;gap:10px}
+      .degree-head h2{overflow-wrap:anywhere}
+      .note{line-height:1.55}
+    }
     @media print{body{background:#fff;color:#111}.page{width:100%;padding:0}.toolbar{display:none}.degree-card{box-shadow:none;break-inside:avoid;border-color:#bbb}.degree-head,table{background:#fff}.degree-head h2,.subject-name,.semester-heading th{color:#111}.degree-head p,.note,.lead,footer,.summary span,.source-note,.schedule-change{color:#444}td,th{border-color:#ddd}.code-cell a{color:#0645ad}.source-note{background:#fff;border-color:#bbb}}
   </style>
 </head>
