@@ -32,10 +32,10 @@
     <aside class="source-note">
       <p><strong>Com s'ha interpretat el semestre.</strong> «Anual» indica docència continuada al primer i al segon semestre. «1r i 2n · grups diferents» indica que la mateixa assignatura s'ofereix en semestres diferents, però no que cada estudiant l'hagi de cursar tot l'any.</p>
       <p>Els horaris s'han contrastat amb el <a href="https://horari.eram.cat/" target="_blank" rel="noopener noreferrer">calendari oficial d'ERAM</a> en setmanes lectives representatives del primer i del segon semestre. Dades consultades de l'1 al 3 de setembre de 2026. Poden existir canvis, incidències o sessions extraordinàries; convé verificar el calendari viu abans de matricular-se.</p>
-      <p><strong>Criteri de verificació.</strong> S'han consultat les fitxes UdG 2026; en dos casos només hi ha disponible la guia 2025. Quan la fitxa UdG i el calendari ERAM no coincideixen en la durada, el grup o la correspondència, l'assignatura consta a «Pendent de confirmar» i la nota explica la discrepància i el criteri aplicat. Els grups C/GG no s'assimilen als A/B sense una correspondència explícita.</p>
+      <p><strong>Prioritat de les fonts.</strong> La fitxa UdG de cada assignatura, accessible des del codi, és la font principal. El calendari ERAM és una font secundària que completa els dies, les hores i les aules quan la fitxa no els detalla. Si discrepen, es mostra la informació de la fitxa UdG i una observació concreta la diferència amb ERAM i el criteri aplicat. L'agrupació per semestres segueix la fitxa, també en les assignatures anuals. En dos casos s'utilitza la guia 2025-2026*, perquè la de 2026-2027 no està disponible; aquestes dades són una referència provisional. Els grups C/GG no s'assimilen als A/B sense una correspondència explícita.</p>
       <p><strong>Idiomes.</strong> Els percentatges reprodueixen les fitxes oficials de cada assignatura i indiquen la proporció prevista de docència en cada llengua. L'asterisc (*) assenyala els casos en què la guia 2026-2027 encara no ho publica i s'ha utilitzat l'última guia disponible, la de 2025-2026. «No especificat» significa que la fitxa oficial no informa de l'idioma d'aquell grup.</p>
       <p><strong>Abreviatures:</strong> dl · dilluns; dt · dimarts; dc · dimecres; dj · dijous; dv · divendres.</p>
-      <div class="legend"><span class="tag first">1r semestre</span><span class="tag annual">Anual · 1r + 2n</span><span class="tag both">1r i 2n · grups diferents</span><span class="tag second">2n semestre</span><span class="tag pending">Pendent de confirmar</span></div>
+      <div class="legend"><span class="tag first">1r semestre</span><span class="tag annual">Anual · 1r + 2n</span><span class="tag both">1r i 2n · grups diferents</span><span class="tag second">2n semestre</span></div>
     </aside>
     <div class="toolbar"><label class="search"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Cerca per assignatura, codi, curs, semestre, dia o grau…" aria-label="Cerca"></label></div>
     <div id="degreeList"></div>
@@ -45,66 +45,303 @@
   <script>
     const degrees={
       CAuM:{name:"Grau en Comunicació Audiovisual i Multimèdia",count:12},
-      AE:{name:"Grau en Arts Escèniques",count:7,detail:"consulteu els casos pendents de confirmar"},
+      AE:{name:"Grau en Arts Escèniques",count:7},
       MODA:{name:"Grau en Moda",count:6}
     };
     const semesters={
       first:{heading:"Primer semestre",label:"1r semestre"},
       annual:{heading:"Assignatures anuals · primer i segon semestre",label:"Anual"},
       both:{heading:"Oferta al primer i al segon semestre · grups diferents",label:"1r i 2n",note:"Grups diferents"},
-      second:{heading:"Segon semestre",label:"2n semestre"},
-      pending:{heading:"Semestre o correspondència pendents de confirmar",label:"Pendent",note:"Vegeu la nota de l’assignatura"}
+      second:{heading:"Segon semestre",label:"2n semestre"}
     };
     const courseOrder={"1r":1,"2n":2,"3r":3,"4t":4};
     const subjects=[
-      {d:"CAuM",c:"3157G04001",y:"1r",n:"Estètica i teoria de l'art",s:"first",h:["<i>Grup A - Català 33% · Castellà 34% · Anglès 33%</i>dc · 11.45–14.45","<i>Grup B - Català 10% · Castellà 50% · Anglès 40%</i>dl · 11.45–14.45"]},
-      {d:"CAuM",c:"3157G04003",y:"2n",n:"Cultura i pensament",s:"first",h:["<i>Grup A - Anglès 100%</i>dc · 08.30–11.30","<i>Grup B - Català 100%</i>dj · 11.45–14.45"]},
-      {d:"CAuM",c:"3157G04049",y:"4t",n:"Il·lustració",note:"Docència en anglès",s:"first",h:["<i>Grup A - Anglès 100%</i>dl · 15.30–19.30"]},
-      {d:"CAuM",c:"3157G04050",y:"4t",n:"Direcció de fotografia",note:"Requereix coneixements previs de fotografia · discrepància UdG/ERAM",s:"both",h:["<b>1r · ERAM:</b> <i>Grup A - idioma no confirmat</i>dl i dc · 15.30–18.30","<em>Sessions segons les dates del calendari · Plató P3</em>","<b>2n · UdG:</b> <i>Grup B - Català 100%*</i>horari encara no publicat al calendari d'ERAM"]},
-      {d:"CAuM",c:"3157G04009",y:"1r",n:"Teoria i tècnica del muntatge",s:"first",h:["<i>Grup A - Català 90% · Anglès 10%</i>dl · 11.45–14.45","<i>Grup B - Català 90% · Anglès 10%</i>dl · 08.30–11.30"]},
-      {d:"CAuM",c:"3157G04023",y:"1r",n:"Fonaments del disseny gràfic",s:"annual",h:["<b>1r:</b> <i>Grup A - Anglès 100%</i>dc · 08.30–11.30","<b>1r:</b> <i>Grup B - Català 90% · Castellà 5% · Anglès 5%</i>dj · 11.45–14.45","<b>2n:</b> <i>Grup A - Anglès 100%</i>dt · 11.45–14.45","<b>2n:</b> <i>Grup B - Català 90% · Castellà 5% · Anglès 5%</i>dj · 11.45–14.45"]},
-      {d:"CAuM",c:"3157G04005",y:"1r",n:"Llenguatge cinematogràfic",s:"annual",h:["<i>Grup B - Català 100%</i>dv · 11.45–14.45","<em>El contingut docent indicat al calendari canvia entre semestres</em>"]},
-      {d:"CAuM",c:"3157G04002",y:"1r",n:"Teoria i anàlisi de la imatge",s:"annual",h:["<b>1r:</b> <i>Grup B - Català 80% · Castellà 15% · Anglès 5%</i>dt · 11.45–14.45","<b>2n:</b> <i>Grup B - Català 80% · Castellà 15% · Anglès 5%</i>dt · 08.30–11.30"]},
-      {d:"CAuM",c:"3157G04037",y:"4t",n:"Fotografia creativa",s:"both",h:["<b>1r:</b> <i>Grup A - Anglès 100%</i>dt · 15.30–19.30","<b>2n:</b> <i>Grup B - Català 100%</i>dt · 15.30–19.30"]},
-      {d:"CAuM",c:"3157G04008",y:"2n",n:"Llenguatges contemporanis",s:"second",h:["<i>Grup A - Anglès 100%</i>dj · 15.30–18.30","<i>Grup B - Català 100%</i>dv · 11.45–14.45"]},
-      {d:"CAuM",c:"3157G04015",y:"2n",n:"3D I",s:"second",h:["<i>Grup A - Català 60% · Castellà 20% · Anglès 20%</i>dt i dj · 11.45–14.45","<i>Grup B - Català 60% · Castellà 20% · Anglès 20%</i>dt i dj · 08.30–11.30"]},
-      {d:"CAuM",c:"3157G04007",y:"3r",n:"Guió videogràfic",note:"Del 2 de novembre de 2026 al 13 de gener de 2027 · segons calendari lectiu",s:"first",h:["<i>Grup A - Català 70% · Castellà 20% · Anglès 10%</i>dl i dc · 11.45–14.45 · T1 · Daniel Pérez (ERAM)","<i>Grup B - Català 70% · Castellà 20% · Anglès 10%</i>dl i dc · 08.30–11.30 · T1 · Marc Plana (ERAM)","<em>Professorat segons ERAM; la fitxa UdG intercanvia els docents dels grups A/B. No correspon a Redacció i desenvolupament del guió (3157G04036).</em>"]},
-
-      {d:"AE",c:"3157G03045",y:"1r",n:"Literatura dramàtica I",s:"annual",h:["<b>1r:</b> <i>Grup A - Català 70% · Castellà 20% · Anglès 10%</i>dc · 09.00–12.00","<b>2n:</b> <i>Grup A - Català 70% · Castellà 20% · Anglès 10%</i>dc · 12.15–15.15"]},
-      {d:"AE",c:"3157G03012",y:"2n",n:"Dramatúrgia teatral",s:"annual",h:["<i>Grup A - Català 100%</i>dl · 10.00–14.00"]},
-      {d:"AE",c:"3157G03046",y:"2n",n:"Literatura dramàtica II",s:"annual",h:["<i>Grup A - Català 70% · Castellà 20% · Anglès 10%</i>dj · 11.45–14.45"]},
-      {d:"AE",c:"3157G03005",y:"1r",n:"Tècniques d'interpretació: veu i cant",s:"annual",h:["<b>1r:</b> <i>Grup A - Català 100%</i>dt · 12.15–15.15","<b>1r:</b> <i>Grup B - Català 100%</i>dc · 12.15–15.15","<b>2n:</b> <i>Grup A - Català 100%</i>dt · 12.15–15.15","<b>2n:</b> <i>Grup B - Català 100%</i>dc · 09.00–12.00"]},
-      {d:"AE",c:"3157G03010",y:"1r",n:"Tècniques d'interpretació de dansa",s:"annual",h:["<i>Grup A - Català 60% · Castellà 20% · Anglès 20%</i>dv · 09.00–12.00","<i>Grup B - Català 60% · Castellà 20% · Anglès 20%</i>dv · 12.15–15.15"]},
-      {d:"AE",c:"3157G03022",y:"?",n:"Interpretació escènica: comportament humà",s:"annual",h:["<i>Grup A - Català 80% · Castellà 20%</i>Horari pendent de confirmar per a aquest codi"]},
-      {d:"AE",c:"3157G03009",y:"1r",n:"Tècniques d'interpretació de llenguatges corporals",note:"Coneixement de les tècniques del cos",s:"annual",h:["<i>Grup A - Català 80% · Castellà 10% · Anglès 5% · Francès 5%</i>dj · 09.00–12.00","<i>Grup B - Català 80% · Castellà 10% · Anglès 5% · Francès 5%</i>dj · 12.15–15.15"]},
-
-      {d:"MODA",c:"3157G05002",y:"1r",n:"Història de la moda",s:"first",h:["<i>Grup B - Català 100%</i>dt · 11.45–14.45"]},
-      {d:"MODA",c:"3157G05005",y:"1r",n:"Iniciació al patronatge: de 3D a 2D",s:"first",h:["<i>Grup B - Català 100%</i>dl · 08.30–12.30","<i>Grup C - Català 100%</i>dl · 13.00–17.00"]},
-      {d:"MODA",c:"3157G05022",y:"3r",n:"Tèxtil i tecnologia",s:"first",h:["<i>Grup B - idioma no especificat (guia 2026)</i>dl · 08.30–12.30"]},
-      {d:"MODA",c:"3157G05021",y:"2n",n:"Matèries tèxtils",s:"annual",h:["<b>1r:</b> <i>Grup B - Català 100%</i>dl · 08.30–11.30","<b>2n:</b> <i>Grup B - Català 100%</i>dl · 12.00–15.00"]},
-      {d:"MODA",c:"3157G05009",y:"1r",n:"Creació de bases i prototips",note:"Confecció",s:"second",h:["<i>Grup B - Català 100%*</i>dt · 09.00–13.00","<i>Grup C - no especificat</i>dl · 08.30–12.30"]},
-      {d:"MODA",c:"3157G05006",y:"1r",n:"Tècniques manuals i digitals de patronatge",s:"second",h:["<i>Grup B - Català 100%</i>dl · 08.30–12.30","<i>Grup C - Català 100%</i>dl · 13.00–17.00"]}
-    ];
-
-    // Criteris per a discrepàncies entre les fitxes UdG i el calendari ERAM.
-    const reviewNotes={
-      "3157G04050":"Discrepància: la guia UdG 2026 no està disponible; la guia 2025 indica el grup B al 2n semestre, mentre que ERAM publica el grup A al 1r. Criteri aplicat: es mostren separadament les dades de cada font i l'oferta i l'idioma del grup A queden pendents de confirmació.",
-      "3157G04005":"Discrepància: la fitxa UdG 2026 situa el grup B al 2n semestre, mentre que el calendari ERAM mostra sessions als dos semestres. Criteri aplicat: el semestre queda pendent fins que ERAM confirmi la correspondència de les sessions amb el codi.",
-      "3157G04015":"Discrepància: la fitxa UdG 2026 defineix l'assignatura com a anual per als grups A i B, però al calendari ERAM només s'ha identificat l'horari del 2n semestre. Criteri aplicat: es conserva la durada anual de la fitxa UdG i queda pendent l'horari del 1r semestre.",
-      "3157G03046":"Discrepància: la fitxa UdG 2026 situa el grup A al 2n semestre, mentre que el calendari ERAM no permet confirmar-ne inequívocament la durada. Criteri aplicat: es manté pendent fins que ERAM confirmi la correspondència i la durada.",
-      "3157G03005":"Discrepància: la fitxa UdG 2026 situa els grups A i B al 2n semestre, mentre que el calendari ERAM mostra sessions als dos semestres. Criteri aplicat: el semestre queda pendent fins que ERAM confirmi la correspondència de les sessions amb el codi.",
-      "3157G03010":"Discrepància: la fitxa UdG 2026 situa els grups A i B al 2n semestre, mentre que el calendari ERAM no permet confirmar una oferta anual. Criteri aplicat: preval la fitxa UdG per identificar el semestre i la correspondència amb els horaris queda pendent.",
-      "3157G03022":"Discrepància de correspondència: el codi UdG identifica Interpretació escènica: comportament humà, anual i del grup A, però no s'ha localitzat una vinculació inequívoca amb l'horari ERAM ni el curs del grau. Criteri aplicat: prevalen el codi i el nom oficials de la UdG; curs i horari queden pendents.",
-      "3157G03009":"Discrepància: la fitxa UdG 2026 situa els grups A i B al 2n semestre, mentre que el calendari ERAM no permet confirmar una oferta anual. Criteri aplicat: preval la fitxa UdG per identificar el semestre i la correspondència amb els horaris queda pendent.",
-      "3157G05022":"Discrepància: la fitxa UdG 2026 defineix l'assignatura com a anual per al grup B i no n'especifica l'idioma, mentre que al calendari ERAM només s'ha identificat l'horari del 1r semestre. Criteri aplicat: es conserva la durada anual i l'idioma de la fitxa UdG; queda pendent l'horari del 2n semestre.",
-      "3157G05009":"Discrepància: la guia UdG 2026 no està disponible; la guia 2025 defineix l'assignatura com a anual i del grup B, però no permet confirmar la correspondència amb els horaris de Confecció. Criteri aplicat: s'utilitza la guia 2025 només com a referència i la durada 2026-2027 i els horaris queden pendents."
-    };
-    subjects.forEach(x=>{
-      if(reviewNotes[x.c]){
-        x.s="pending";
-        x.note=[x.note,reviewNotes[x.c]].filter(Boolean).join(" · ");
-      }
-    });
+  {
+    "d": "CAuM",
+    "c": "3157G04001",
+    "y": "1r",
+    "n": "Estètica i teoria de l'art",
+    "s": "first",
+    "h": [
+      "<i>Grup A - Català 33% · Castellà 34% · Anglès 33%</i>dc · 11.45–14.45",
+      "<i>Grup B - Català 10% · Castellà 50% · Anglès 40%</i>dl · 11.45–14.45"
+    ]
+  },
+  {
+    "d": "CAuM",
+    "c": "3157G04003",
+    "y": "2n",
+    "n": "Cultura i pensament",
+    "s": "first",
+    "h": [
+      "<i>Grup A - Anglès 100%</i>dc · 08.30–11.30",
+      "<i>Grup B - Català 100%</i>dj · 11.45–14.45"
+    ]
+  },
+  {
+    "d": "CAuM",
+    "c": "3157G04049",
+    "y": "4t",
+    "n": "Il·lustració",
+    "note": "Docència en anglès",
+    "s": "first",
+    "h": [
+      "<i>Grup A - Anglès 100%</i>dl · 15.30–19.30"
+    ]
+  },
+  {
+    "d": "CAuM",
+    "c": "3157G04050",
+    "y": "4t",
+    "n": "Direcció de fotografia",
+    "note": "Requereix coneixements previs de fotografia · Semestre, grup i idioma segons la guia UdG 2025-2026*, perquè la guia 2026-2027 no està disponible. Discrepància: ERAM publica el grup A al 1r semestre, dl i dc 15.30–18.30, al plató P3. Criteri: preval la fitxa UdG; aquest horari no s'atribueix al grup B.",
+    "s": "second",
+    "h": [
+      "<i>Grup B - Català 100%*</i>2n semestre · Horari no localitzat per a aquest grup al calendari ERAM"
+    ]
+  },
+  {
+    "d": "CAuM",
+    "c": "3157G04009",
+    "y": "1r",
+    "n": "Teoria i tècnica del muntatge",
+    "s": "first",
+    "h": [
+      "<i>Grup A - Català 90% · Anglès 10%</i>dl · 11.45–14.45",
+      "<i>Grup B - Català 90% · Anglès 10%</i>dl · 08.30–11.30"
+    ]
+  },
+  {
+    "d": "CAuM",
+    "c": "3157G04023",
+    "y": "1r",
+    "n": "Fonaments del disseny gràfic",
+    "s": "annual",
+    "h": [
+      "<b>1r:</b> <i>Grup A - Anglès 100%</i>dc · 08.30–11.30",
+      "<b>1r:</b> <i>Grup B - Català 90% · Castellà 5% · Anglès 5%</i>dj · 11.45–14.45",
+      "<b>2n:</b> <i>Grup A - Anglès 100%</i>dt · 11.45–14.45",
+      "<b>2n:</b> <i>Grup B - Català 90% · Castellà 5% · Anglès 5%</i>dj · 11.45–14.45"
+    ]
+  },
+  {
+    "d": "CAuM",
+    "c": "3157G04005",
+    "y": "1r",
+    "n": "Llenguatge cinematogràfic",
+    "s": "second",
+    "h": [
+      "<i>Grup B - Català 100%</i>dv · 11.45–14.45"
+    ],
+    "note": "Discrepància: ERAM mostra sessions als dos semestres. Criteri: preval la fitxa UdG, que situa el grup B al 2n semestre; no es considera anual."
+  },
+  {
+    "d": "CAuM",
+    "c": "3157G04002",
+    "y": "1r",
+    "n": "Teoria i anàlisi de la imatge",
+    "s": "annual",
+    "h": [
+      "<b>1r:</b> <i>Grup B - Català 80% · Castellà 15% · Anglès 5%</i>dt · 11.45–14.45",
+      "<b>2n:</b> <i>Grup B - Català 80% · Castellà 15% · Anglès 5%</i>dt · 08.30–11.30"
+    ]
+  },
+  {
+    "d": "CAuM",
+    "c": "3157G04037",
+    "y": "4t",
+    "n": "Fotografia creativa",
+    "s": "both",
+    "h": [
+      "<b>1r:</b> <i>Grup A - Anglès 100%</i>dt · 15.30–19.30",
+      "<b>2n:</b> <i>Grup B - Català 100%</i>dt · 15.30–19.30"
+    ]
+  },
+  {
+    "d": "CAuM",
+    "c": "3157G04008",
+    "y": "2n",
+    "n": "Llenguatges contemporanis",
+    "s": "second",
+    "h": [
+      "<i>Grup A - Anglès 100%</i>dj · 15.30–18.30",
+      "<i>Grup B - Català 100%</i>dv · 11.45–14.45"
+    ]
+  },
+  {
+    "d": "CAuM",
+    "c": "3157G04015",
+    "y": "2n",
+    "n": "3D I",
+    "s": "annual",
+    "h": [
+      "<b>2n:</b> <i>Grup A - Català 60% · Castellà 20% · Anglès 20%</i>dt i dj · 11.45–14.45",
+      "<b>2n:</b> <i>Grup B - Català 60% · Castellà 20% · Anglès 20%</i>dt i dj · 08.30–11.30",
+      "<em>1r semestre: horari no localitzat.</em>"
+    ],
+    "note": "Horari parcial: al calendari ERAM només s'ha identificat el 2n semestre. Criteri: preval la durada anual dels grups A i B indicada a la fitxa UdG."
+  },
+  {
+    "d": "CAuM",
+    "c": "3157G04007",
+    "y": "3r",
+    "n": "Guió videogràfic",
+    "note": "Del 2 de novembre de 2026 al 13 de gener de 2027 · segons calendari lectiu · Discrepància de professorat: ERAM atribueix Daniel Pérez al grup A i Marc Plana al B. Criteri: preval la fitxa UdG (A: Marc Plana; B: Daniel Pérez); dies, hores i aula provenen d'ERAM. No correspon a Redacció i desenvolupament del guió (3157G04036).",
+    "s": "first",
+    "h": [
+      "<i>Grup A - Català 70% · Castellà 20% · Anglès 10%</i>dl i dc · 11.45–14.45 · T1 · Marc Plana (UdG)",
+      "<i>Grup B - Català 70% · Castellà 20% · Anglès 10%</i>dl i dc · 08.30–11.30 · T1 · Daniel Pérez (UdG)"
+    ]
+  },
+  {
+    "d": "AE",
+    "c": "3157G03045",
+    "y": "1r",
+    "n": "Literatura dramàtica I",
+    "s": "annual",
+    "h": [
+      "<b>1r:</b> <i>Grup A - Català 70% · Castellà 20% · Anglès 10%</i>dc · 09.00–12.00",
+      "<b>2n:</b> <i>Grup A - Català 70% · Castellà 20% · Anglès 10%</i>dc · 12.15–15.15"
+    ]
+  },
+  {
+    "d": "AE",
+    "c": "3157G03012",
+    "y": "2n",
+    "n": "Dramatúrgia teatral",
+    "s": "annual",
+    "h": [
+      "<i>Grup A - Català 100%</i>dl · 10.00–14.00"
+    ]
+  },
+  {
+    "d": "AE",
+    "c": "3157G03046",
+    "y": "2n",
+    "n": "Literatura dramàtica II",
+    "s": "second",
+    "h": [
+      "<i>Grup A - Català 70% · Castellà 20% · Anglès 10%</i>dj · 11.45–14.45",
+      "<em>Horari ERAM amb correspondència pendent de confirmar.</em>"
+    ],
+    "note": "Observació: el calendari ERAM no permet confirmar inequívocament la durada i la correspondència de les sessions. Criteri: preval el 2n semestre de la fitxa UdG; l'horari indicat resta pendent de confirmar per a aquest codi."
+  },
+  {
+    "d": "AE",
+    "c": "3157G03005",
+    "y": "1r",
+    "n": "Tècniques d'interpretació: veu i cant",
+    "s": "second",
+    "h": [
+      "<b>2n:</b> <i>Grup A - Català 100%</i>dt · 12.15–15.15",
+      "<b>2n:</b> <i>Grup B - Català 100%</i>dc · 09.00–12.00"
+    ],
+    "note": "Discrepància: ERAM mostra sessions als dos semestres (1r: A dt 12.15–15.15; B dc 12.15–15.15). Criteri: preval la fitxa UdG, que situa els grups A i B al 2n semestre."
+  },
+  {
+    "d": "AE",
+    "c": "3157G03010",
+    "y": "1r",
+    "n": "Tècniques d'interpretació de dansa",
+    "s": "second",
+    "h": [
+      "<i>Grup A - Català 60% · Castellà 20% · Anglès 20%</i>dv · 09.00–12.00",
+      "<i>Grup B - Català 60% · Castellà 20% · Anglès 20%</i>dv · 12.15–15.15",
+      "<em>Horari ERAM amb correspondència pendent de confirmar.</em>"
+    ],
+    "note": "Observació: el calendari ERAM no permet confirmar una oferta anual ni la correspondència inequívoca de les sessions. Criteri: preval el 2n semestre dels grups A i B de la fitxa UdG; l'horari indicat resta pendent de confirmar."
+  },
+  {
+    "d": "AE",
+    "c": "3157G03022",
+    "y": "?",
+    "n": "Interpretació escènica: comportament humà",
+    "s": "annual",
+    "h": [
+      "<i>Grup A - Català 80% · Castellà 20%</i>Horari pendent de confirmar per a aquest codi"
+    ],
+    "note": "La fitxa UdG identifica aquesta assignatura com a anual i del grup A. No s'ha confirmat la correspondència amb l'horari ERAM ni el curs del grau. Criteri: es mantenen el nom, el grup i la durada de la fitxa; curs i horari no confirmats."
+  },
+  {
+    "d": "AE",
+    "c": "3157G03009",
+    "y": "1r",
+    "n": "Tècniques d'interpretació de llenguatges corporals",
+    "note": "Coneixement de les tècniques del cos · Observació: el calendari ERAM no permet confirmar una oferta anual ni la correspondència inequívoca de les sessions. Criteri: preval el 2n semestre dels grups A i B de la fitxa UdG; l'horari indicat resta pendent de confirmar.",
+    "s": "second",
+    "h": [
+      "<i>Grup A - Català 80% · Castellà 10% · Anglès 5% · Francès 5%</i>dj · 09.00–12.00",
+      "<i>Grup B - Català 80% · Castellà 10% · Anglès 5% · Francès 5%</i>dj · 12.15–15.15",
+      "<em>Horari ERAM amb correspondència pendent de confirmar.</em>"
+    ]
+  },
+  {
+    "d": "MODA",
+    "c": "3157G05002",
+    "y": "1r",
+    "n": "Història de la moda",
+    "s": "first",
+    "h": [
+      "<i>Grup B - Català 100%</i>dt · 11.45–14.45"
+    ]
+  },
+  {
+    "d": "MODA",
+    "c": "3157G05005",
+    "y": "1r",
+    "n": "Iniciació al patronatge: de 3D a 2D",
+    "s": "first",
+    "h": [
+      "<i>Grup B - Català 100%</i>dl · 08.30–12.30",
+      "<i>Grup C - Català 100%</i>dl · 13.00–17.00"
+    ]
+  },
+  {
+    "d": "MODA",
+    "c": "3157G05022",
+    "y": "3r",
+    "n": "Tèxtil i tecnologia",
+    "s": "annual",
+    "h": [
+      "<b>1r:</b> <i>Grup B - idioma no especificat (guia 2026)</i>dl · 08.30–12.30",
+      "<em>2n semestre: horari no localitzat.</em>"
+    ],
+    "note": "Horari parcial: al calendari ERAM només s'ha identificat el 1r semestre. Criteri: preval la fitxa UdG, que indica durada anual per al grup B i no especifica l'idioma."
+  },
+  {
+    "d": "MODA",
+    "c": "3157G05021",
+    "y": "2n",
+    "n": "Matèries tèxtils",
+    "s": "annual",
+    "h": [
+      "<b>1r:</b> <i>Grup B - Català 100%</i>dl · 08.30–11.30",
+      "<b>2n:</b> <i>Grup B - Català 100%</i>dl · 12.00–15.00"
+    ]
+  },
+  {
+    "d": "MODA",
+    "c": "3157G05009",
+    "y": "1r",
+    "n": "Creació de bases i prototips",
+    "note": "Durada anual, grup B i idioma segons la guia UdG 2025-2026*, perquè la guia 2026-2027 no està disponible. Observació: ERAM publica Confecció al 2n semestre (B dt 09.00–13.00; C dl 08.30–12.30), però no se n'ha confirmat l'equivalència amb aquest codi. Criteri: preval la fitxa UdG; aquests horaris no s'atribueixen a l'assignatura.",
+    "s": "annual",
+    "h": [
+      "<i>Grup B - Català 100%*</i>Horari pendent de confirmar per a aquest codi"
+    ]
+  },
+  {
+    "d": "MODA",
+    "c": "3157G05006",
+    "y": "1r",
+    "n": "Tècniques manuals i digitals de patronatge",
+    "s": "second",
+    "h": [
+      "<i>Grup B - Català 100%</i>dl · 08.30–12.30",
+      "<i>Grup C - Català 100%</i>dl · 13.00–17.00"
+    ]
+  }
+];
 
     const esc=s=>s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]));
     const detailsUrl=c=>`https://www.udg.edu/ca/estudia/Oferta-formativa/Oferta-dassignatures/Detall-assignatura?codia=${c}&curs=${["3157G04050","3157G05009"].includes(c)?"2025":"2026"}`;
